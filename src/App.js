@@ -1,12 +1,19 @@
+import { Component } from "react";
+import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
 import "./App.css";
-import Counter from "./components/Counter";
 
-function App() {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <main>
+          <Meals />
+        </main>
+      </>
+    );
+  }
 }
 
 export default App;
