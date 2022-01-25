@@ -1,3 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  height: 50px;
+  padding: 0 1rem;
+  fill: var(--action-color);
+}
+
 .logo a {
   text-decoration: none;
   color: var(--action-color);
