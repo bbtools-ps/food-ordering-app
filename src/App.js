@@ -2,6 +2,7 @@ import { Component } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import Copyright from "./components/Copyright/Copyright";
 import "./App.css";
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
         <main>
           <Meals />
         </main>
+        <Copyright author="Bogdan Bogdanovic" />
       </>
     );
   }

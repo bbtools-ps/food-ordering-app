@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Logo from "../UI/Logo";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import styles from "./Header.module.css";
@@ -8,7 +9,7 @@ class Header extends Component {
     return (
       <>
         <header className={styles.header}>
-          <h1>FoodOrder</h1>
+          <Logo />
           <HeaderCartButton onClick={this.props.onShowCart} />
         </header>
         <div className={styles["main-image"]}>
