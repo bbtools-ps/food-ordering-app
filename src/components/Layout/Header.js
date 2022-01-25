@@ -9,7 +9,7 @@ class Header extends Component {
       <>
         <header className={styles.header}>
           <h1>FoodOrder</h1>
-          <HeaderCartButton />
+          <HeaderCartButton onClick={this.props.onShowCart} />
         </header>
         <div className={styles["main-image"]}>
           <img src={mealsImage} alt="a table of meals" />
