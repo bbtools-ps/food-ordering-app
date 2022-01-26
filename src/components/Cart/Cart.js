@@ -1,11 +1,19 @@
 import { connect } from "react-redux";
 import { Component } from "react";
+import { cartActions } from "../../store";
 import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 
 class Cart extends Component {
-  cartItemAddHandler() {}
+  cartItemAddHandler(item) {
+    this.props.addItem({
+      id: item.id,
+      name: item.name,
+      amount: 1,
+      price: item.price,
+    });
+  }
   cartItemRemoveHandler() {}
   cartItems() {
     return (
@@ -54,4 +62,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItem: (item) => dispatch(cartActions.addItem(item)),
+    removeItem: () => dispatch(cartActions.removeItem()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
