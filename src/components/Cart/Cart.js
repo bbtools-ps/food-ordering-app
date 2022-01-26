@@ -14,7 +14,9 @@ class Cart extends Component {
       price: item.price,
     });
   }
-  cartItemRemoveHandler() {}
+  cartItemRemoveHandler(id) {
+    this.props.removeItem(id);
+  }
   cartItems() {
     return (
       <ul className={styles["cart-items"]}>
@@ -65,7 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addItem: (item) => dispatch(cartActions.addItem(item)),
-    removeItem: () => dispatch(cartActions.removeItem()),
+    removeItem: (id) => dispatch(cartActions.removeItem(id)),
   };
 };
 
