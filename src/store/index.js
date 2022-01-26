@@ -10,10 +10,25 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      const updatedItems = state.items.concat(action.payload.item);
-      const updatedTotalAmount =
-        state.totalAmount + action.payload.price * action.payload.item.amount;
-      return { items: updatedItems, totalAmount: updatedTotalAmount };
+      state.totalAmount =
+        state.totalAmount + action.payload.price * action.payload.amount;
+      const existingCartItemIndex = state.items.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
+      const existingCartItem = state.items[existingCartItemIndex];
+      let updatedItems;
+
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.payload.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        updatedItems = state.items.concat(action.payload);
+      }
+      state.items = updatedItems;
     },
     removeItem(state) {
       return;

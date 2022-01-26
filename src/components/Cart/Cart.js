@@ -1,15 +1,16 @@
+import { connect } from "react-redux";
 import { Component } from "react";
 import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 
 class Cart extends Component {
-  cartItemRemoveHandler(id) {}
-  cartItemAddHandler(item) {}
+  cartItemAddHandler() {}
+  cartItemRemoveHandler() {}
   cartItems() {
     return (
       <ul className={styles["cart-items"]}>
-        {[{ id: "c1", name: "Sushi", amount: 2, price: 12.99 }].map((item) => (
+        {this.props.items.map((item) => (
           <CartItem
             key={item.id}
             name={item.name}
@@ -23,12 +24,14 @@ class Cart extends Component {
     );
   }
   render() {
+    const totalAmount = `$${this.props.totalAmount.toFixed(2)}`;
+    const hasItems = this.props.items.length > 0;
     return (
       <Modal onClose={this.props.onClose}>
         {this.cartItems()}
         <div className={styles.total}>
           <span>Total Amount</span>
-          <span>35.62</span>
+          <span>{totalAmount}</span>
         </div>
         <div className={styles.actions}>
           <button
@@ -37,11 +40,18 @@ class Cart extends Component {
           >
             Close
           </button>
-          <button className={styles.button}>Order</button>
+          {hasItems && <button className={styles.button}>Order</button>}
         </div>
       </Modal>
     );
   }
 }
 
-export default Cart;
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+    totalAmount: state.totalAmount,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);
