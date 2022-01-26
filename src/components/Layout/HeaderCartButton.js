@@ -1,4 +1,3 @@
-import { cartActions } from "../../store";
 import { connect } from "react-redux";
 import { Component } from "react";
 import CartIcon from "../Cart/CartIcon";
@@ -28,11 +27,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addItem: () => dispatch(cartActions.addItem()),
-    removeItem: () => dispatch(cartActions.decrement()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderCartButton);
+export default connect(mapStateToProps)(HeaderCartButton);

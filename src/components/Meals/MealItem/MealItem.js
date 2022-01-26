@@ -1,3 +1,4 @@
+import { connect } from "react-redux";
 import { Component } from "react";
 import MealItemForm from "./MealItemForm";
 import styles from "./MealItem.module.css";
