@@ -11,6 +11,8 @@ class MealItem extends Component {
       name: this.props.name,
       amount: amount,
       price: this.props.price,
+      additional: this.props.additional,
+      drinks: this.props.drinks,
     });
   }
   render() {
@@ -34,14 +36,12 @@ class MealItem extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
-    totalAmount: state.totalAmount,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addItem: (amount) => dispatch(cartActions.addItem(amount)),
-    removeItem: () => dispatch(cartActions.removeItem()),
   };
 };
 

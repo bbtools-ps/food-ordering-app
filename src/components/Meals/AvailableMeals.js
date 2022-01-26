@@ -9,6 +9,7 @@ const DUMMY_MEALS = [
     name: "Sushi",
     description: "Finest fish and veggies",
     price: 22.99,
+    additional: [{ id: "a1", name: "Soya sauce", price: 0.5 }],
   },
   {
     id: "m2",
@@ -21,6 +22,7 @@ const DUMMY_MEALS = [
     name: "Barbecue Burger",
     description: "American, raw, meaty",
     price: 12.99,
+    additional: [{ id: "a1", name: "Barbecue sauce", price: 0.5 }],
   },
   {
     id: "m4",
@@ -28,6 +30,11 @@ const DUMMY_MEALS = [
     description: "Healthy...and green...",
     price: 18.99,
   },
+];
+
+const DUMMY_DRINKS = [
+  { id: "d1", name: "Coca-Cola Zero 330ml", price: 1 },
+  { id: "d2", name: "Mineral water 0.5l", price: 0.9 },
 ];
 
 class AvailableMeals extends Component {
@@ -40,6 +47,8 @@ class AvailableMeals extends Component {
           name={meal.name}
           description={meal.description}
           price={meal.price}
+          additional={meal.additional}
+          drinks={DUMMY_DRINKS}
         />
       );
     });

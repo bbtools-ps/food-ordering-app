@@ -37,6 +37,8 @@ class Cart extends Component {
             name={item.name}
             amount={item.amount}
             price={item.price}
+            additional={item.additional}
+            drinks={item.drinks}
             onAdd={this.cartItemAddHandler.bind(this, item)}
             onRemove={this.cartItemRemoveHandler.bind(this, item.id)}
           />
