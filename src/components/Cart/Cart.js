@@ -17,6 +17,17 @@ class Cart extends Component {
   cartItemRemoveHandler(id) {
     this.props.removeItem(id);
   }
+  // notify the user when order is sent
+  cartOrderHandler() {
+    const itemsList = this.props.items
+      .map((item) => {
+        return `${item.name} x ${item.amount}`;
+      })
+      .join("\n");
+    alert(
+      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${itemsList}\nTotal: $${this.props.totalAmount}\n\nThank you for choosing FoodOrder.`
+    );
+  }
   cartItems() {
     return (
       <ul className={styles["cart-items"]}>
@@ -50,7 +61,14 @@ class Cart extends Component {
           >
             Close
           </button>
-          {hasItems && <button className={styles.button}>Order</button>}
+          {hasItems && (
+            <button
+              className={styles.button}
+              onClick={this.cartOrderHandler.bind(this)}
+            >
+              Order
+            </button>
+          )}
         </div>
       </Modal>
     );
