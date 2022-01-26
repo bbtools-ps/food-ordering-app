@@ -9,8 +9,11 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem(state) {
-      return;
+    addItem(state, action) {
+      const updatedItems = state.items.concat(action.payload.item);
+      const updatedTotalAmount =
+        state.totalAmount + action.payload.price * action.payload.item.amount;
+      return { items: updatedItems, totalAmount: updatedTotalAmount };
     },
     removeItem(state) {
       return;
