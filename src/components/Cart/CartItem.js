@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CartItemAdditional from "./CartItemAdditional";
+import CartAdditionalItems from "./CartAdditionalItems";
 import styles from "./CartItem.module.css";
 
 class CartItem extends Component {
@@ -21,7 +21,7 @@ class CartItem extends Component {
             <button onClick={this.props.onAdd}>+</button>
           </div>
         </div>
-        <CartItemAdditional
+        <CartAdditionalItems
           additional={this.props.additional}
           drinks={this.props.drinks}
         />

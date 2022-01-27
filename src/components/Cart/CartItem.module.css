@@ -12,11 +12,6 @@
   margin-bottom: 0.5rem;
 }
 
-.additional {
-  display: grid;
-}
-
-.additional button,
 .actions button {
   font: inherit;
   color: #8a2b06;
@@ -28,32 +23,10 @@
   margin: 0.25rem;
 }
 
-.additional button:hover,
-.additional button:active,
 .actions button:hover,
 .actions button:active {
   background-color: #8a2b06;
   color: white;
-}
-
-.additional button:hover span,
-.additional button:active span {
-  color: #8a2b06;
-}
-
-.additional span {
-  font-weight: 700;
-}
-
-.additional button {
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.3rem 1rem;
-}
-
-.additional button span {
-  line-height: 1rem;
 }
 
 .cart-item h2 {

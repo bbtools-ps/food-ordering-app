@@ -1,14 +1,17 @@
 import { Component } from "react";
-import styles from "./CartItem.module.css";
+import styles from "./CartAdditionalItems.module.css";
 
 class CartItemAdditional extends Component {
+  addItemHandler(item) {
+    console.log(item);
+  }
   render() {
     const additional = this.props.additional
       ? [...this.props.additional, ...this.props.drinks]
       : [...this.props.drinks];
     const result = additional.map((item) => {
       return (
-        <button key={item.id}>
+        <button onClick={this.addItemHandler.bind(this, item)} key={item.id}>
           {item.name} + ${item.price}
           <span>+</span>
         </button>
