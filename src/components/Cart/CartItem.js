@@ -1,17 +1,11 @@
 import { Component } from "react";
+import CartItemAdditional from "./CartItemAdditional";
 import styles from "./CartItem.module.css";
 
 class CartItem extends Component {
   render() {
     const price = `$${this.props.price.toFixed(2)}`;
-    const drinks = this.props.drinks.map((drink) => {
-      return (
-        <button key={drink.id}>
-          {drink.name} + ${drink.price}
-          <span>+</span>
-        </button>
-      );
-    });
+
     return (
       <li className={styles["cart-item"]}>
         <div className={styles.meal}>
@@ -27,19 +21,10 @@ class CartItem extends Component {
             <button onClick={this.props.onAdd}>+</button>
           </div>
         </div>
-        {this.props.additional && (
-          <div className={styles.additional}>
-            {this.props.additional.map((item) => {
-              return (
-                <button key={item.id}>
-                  {item.name} + ${item.price}
-                  <span>+</span>
-                </button>
-              );
-            })}
-          </div>
-        )}
-        <div className={styles.additional}>{drinks}</div>
+        <CartItemAdditional
+          additional={this.props.additional}
+          drinks={this.props.drinks}
+        />
       </li>
     );
   }

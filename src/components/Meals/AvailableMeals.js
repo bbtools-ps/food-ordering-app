@@ -9,7 +9,7 @@ const DUMMY_MEALS = [
     name: "Sushi",
     description: "Finest fish and veggies",
     price: 22.99,
-    additional: [{ id: "a1", name: "Soya sauce", price: 0.5 }],
+    additional: [{ id: "a1_1", name: "Soya sauce", price: 0.5 }],
   },
   {
     id: "m2",
@@ -22,7 +22,7 @@ const DUMMY_MEALS = [
     name: "Barbecue Burger",
     description: "American, raw, meaty",
     price: 12.99,
-    additional: [{ id: "a1", name: "Barbecue sauce", price: 0.5 }],
+    additional: [{ id: "a2_1", name: "Barbecue sauce", price: 0.5 }],
   },
   {
     id: "m4",

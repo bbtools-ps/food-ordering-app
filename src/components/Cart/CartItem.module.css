@@ -36,6 +36,11 @@
   color: white;
 }
 
+.additional button:hover span,
+.additional button:active span {
+  color: #8a2b06;
+}
+
 .additional span {
   font-weight: 700;
 }
