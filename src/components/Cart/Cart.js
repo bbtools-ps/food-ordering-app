@@ -17,15 +17,15 @@ class Cart extends Component {
   cartItemRemoveHandler(id) {
     this.props.removeItem(id);
   }
-  // notify the user when order is sent
+  // show message when order is sent
   cartOrderHandler() {
-    const itemsList = this.props.items
+    const orderList = this.props.items
       .map((item) => {
         return `${item.name} x ${item.amount}`;
       })
       .join("\n");
     alert(
-      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${itemsList}\nTotal: $${this.props.totalAmount}\n\nThank you for choosing FoodOrder.`
+      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${orderList}\nTotal: $${this.props.totalAmount}\n\nThank you for choosing FoodHeaven.`
     );
   }
   cartItems() {

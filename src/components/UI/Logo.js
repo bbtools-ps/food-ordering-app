@@ -20,7 +20,7 @@ class Logo extends Component {
           </svg>
         </a>
         <h1>
-          <a href="./">FoodOrder</a>
+          <a href="./">FoodHeaven</a>
         </h1>
       </div>
     );
