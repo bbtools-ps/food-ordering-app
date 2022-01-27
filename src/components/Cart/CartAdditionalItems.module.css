@@ -14,7 +14,8 @@
 }
 
 .additional button:hover,
-.additional button:active {
+.additional button:active,
+.active {
   background-color: #8a2b06;
   color: white;
 }
