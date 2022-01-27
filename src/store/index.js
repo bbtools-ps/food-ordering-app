@@ -1,5 +1,4 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
@@ -11,7 +10,6 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      console.log(current(state.items));
       const existingCartItemIndex = state.items.findIndex((item) => {
         return item.id === action.payload.id;
       });
@@ -29,7 +27,6 @@ const cartSlice = createSlice({
             0
           );
         }
-        console.log(additionalItemsSum * action.payload.amount);
         const updatedItem = {
           ...existingCartItem,
           amount: existingCartItem.amount + action.payload.amount,

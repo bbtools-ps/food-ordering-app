@@ -24,6 +24,16 @@ class AdditionalItem extends Component {
       this.props.removeItem(item.id);
     }
   }
+  // set active class for each item on load
+  componentDidMount() {
+    this.props.items.forEach((item) => {
+      item.selectedAdditionalItems.forEach((selectedItem) => {
+        if (selectedItem.id === this.props.item.id) {
+          this.setState({ isActive: true });
+        }
+      });
+    });
+  }
   render() {
     return (
       <button

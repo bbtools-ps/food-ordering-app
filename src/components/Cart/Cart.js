@@ -21,11 +21,21 @@ class Cart extends Component {
   cartOrderHandler() {
     const orderList = this.props.items
       .map((item) => {
-        return `${item.name} x ${item.amount}`;
+        let additionalItems;
+        if (item.selectedAdditionalItems) {
+          additionalItems = item.selectedAdditionalItems
+            .map((additionalItem) => {
+              return additionalItem.name;
+            })
+            .join(", ");
+        }
+        return additionalItems
+          ? `${item.name} x ${item.amount}\nAdditional items for ${item.name}: ${additionalItems} x ${item.amount}\n`
+          : `${item.name} x ${item.amount}\n`;
       })
       .join("\n");
     alert(
-      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${orderList}\nTotal: $${this.props.totalAmount.toFixed(
+      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n\n${orderList}\nTotal: $${this.props.totalAmount.toFixed(
         2
       )}\n\nThank you for choosing FoodHeaven.`
     );
