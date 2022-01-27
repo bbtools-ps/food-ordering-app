@@ -25,7 +25,9 @@ class Cart extends Component {
       })
       .join("\n");
     alert(
-      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${orderList}\nTotal: $${this.props.totalAmount}\n\nThank you for choosing FoodHeaven.`
+      `Your order has been sent and will arrive as soon as possible.\n\nOrder details:\n${orderList}\nTotal: $${this.props.totalAmount.toFixed(
+        2
+      )}\n\nThank you for choosing FoodHeaven.`
     );
   }
   cartItems() {
