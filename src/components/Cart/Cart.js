@@ -49,8 +49,8 @@ class Cart extends Component {
     );
   }
   render() {
-    const totalAmount = `$${this.props.totalAmount.toFixed(2)}`;
     const hasItems = this.props.items.length > 0;
+    const totalAmount = `$${this.props.totalAmount.toFixed(2)}`;
     return (
       <Modal onClose={this.props.onClose}>
         {this.cartItems()}

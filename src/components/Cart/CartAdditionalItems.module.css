@@ -20,6 +20,15 @@
   color: white;
 }
 
+.active {
+  background-color: #8a2b06 !important;
+  color: white !important;
+}
+
+.active span {
+  color: #8a2b06;
+}
+
 .additional button:hover span,
 .additional button:active span {
   color: #8a2b06;

@@ -12,7 +12,7 @@ class MealItem extends Component {
       amount: amount,
       price: this.props.price,
       additional: this.props.additional,
-      drinks: this.props.drinks,
+      selectedAdditionalItems: [],
     });
   }
   render() {

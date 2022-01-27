@@ -21,10 +21,7 @@ class CartItem extends Component {
             <button onClick={this.props.onAdd}>+</button>
           </div>
         </div>
-        <CartAdditionalItems
-          additional={this.props.additional}
-          drinks={this.props.drinks}
-        />
+        <CartAdditionalItems additional={this.props.additional} />
       </li>
     );
   }

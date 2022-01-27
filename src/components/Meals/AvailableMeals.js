@@ -9,7 +9,7 @@ const DUMMY_MEALS = [
     name: "Sushi",
     description: "Finest fish and veggies",
     price: 22.99,
-    additional: [{ id: "a1_1", name: "Soya sauce", price: 0.5 }],
+    additional: [{ id: "a1", name: "Soya sauce", price: 0.5 }],
   },
   {
     id: "m2",
@@ -22,7 +22,7 @@ const DUMMY_MEALS = [
     name: "Barbecue Burger",
     description: "American, raw, meaty",
     price: 12.99,
-    additional: [{ id: "a2_1", name: "Barbecue sauce", price: 0.5 }],
+    additional: [{ id: "a2", name: "Barbecue sauce", price: 0.5 }],
   },
   {
     id: "m4",
@@ -37,9 +37,36 @@ const DUMMY_DRINKS = [
   { id: "d2", name: "Mineral water 0.5l", price: 0.9 },
 ];
 
+// merge meals, drinks and additional into one array
+const ALL_MEALS = [...DUMMY_MEALS].map((item) => {
+  const commonItemProperties = {
+    id: item.id,
+    name: item.name,
+    description: item.description,
+    price: item.price,
+  };
+  const drinks = DUMMY_DRINKS.map((drink) => {
+    const newID = `a_${item.id}_${drink.id}`;
+    return {
+      id: newID,
+      name: drink.name,
+      price: drink.price,
+    };
+  });
+  return item.additional
+    ? {
+        ...commonItemProperties,
+        additional: [...item.additional, ...drinks],
+      }
+    : {
+        ...commonItemProperties,
+        additional: [...drinks],
+      };
+});
+
 class AvailableMeals extends Component {
   mealsList() {
-    const meals = DUMMY_MEALS.map((meal) => {
+    const meals = ALL_MEALS.map((meal) => {
       return (
         <MealItem
           key={meal.id}
@@ -48,7 +75,6 @@ class AvailableMeals extends Component {
           description={meal.description}
           price={meal.price}
           additional={meal.additional}
-          drinks={DUMMY_DRINKS}
         />
       );
     });
